@@ -14,7 +14,6 @@ font-family:system-ui,sans-serif;
 background:#fffaf0;
 color:#182019
 }
-
 header{
 background:#137333;
 color:#fff;
@@ -23,7 +22,6 @@ position:sticky;
 top:0;
 z-index:10
 }
-
 .head{
 max-width:1150px;
 margin:auto;
@@ -32,17 +30,8 @@ justify-content:space-between;
 align-items:center;
 gap:10px
 }
-
-.brand{
-font-size:20px;
-font-weight:800
-}
-
-.wrap{
-max-width:1150px;
-margin:auto;
-padding:16px
-}
+.brand{font-size:20px;font-weight:800}
+.wrap{max-width:1150px;margin:auto;padding:16px}
 
 .hero{
 background:linear-gradient(135deg,#137333,#2e9e55);
@@ -51,18 +40,13 @@ border-radius:20px;
 padding:25px;
 margin-bottom:16px
 }
-
-.hero h1{
-margin:0 0 8px;
-font-size:30px
-}
+.hero h1{margin:0 0 8px;font-size:30px}
 
 .search{
 display:flex;
 gap:8px;
 margin-top:15px
 }
-
 .search input,.input{
 width:100%;
 padding:12px;
@@ -70,7 +54,6 @@ border:1px solid #d5ddd7;
 border-radius:10px;
 font-size:15px
 }
-
 .search input{border:0}
 
 .btn{
@@ -82,7 +65,7 @@ cursor:pointer;
 background:#137333;
 color:#fff
 }
-
+.btn:disabled{opacity:.5;cursor:not-allowed}
 .white{background:#fff;color:#137333}
 .red{background:#c62828}
 .orange{background:#f6b51b;color:#111}
@@ -95,7 +78,6 @@ gap:8px;
 overflow:auto;
 padding:2px 0 12px
 }
-
 .tab{
 border:1px solid #d7ded8;
 background:#fff;
@@ -104,11 +86,7 @@ padding:9px 14px;
 white-space:nowrap;
 cursor:pointer
 }
-
-.active{
-background:#137333!important;
-color:#fff
-}
+.active{background:#137333!important;color:#fff}
 
 .grid{
 display:grid;
@@ -130,23 +108,14 @@ background:#eef6ef;
 border-radius:12px;
 padding:10px
 }
-
-.name{
-font-weight:800;
-margin-top:8px
-}
-
+.name{font-weight:800;margin-top:8px}
 .price{
 font-size:18px;
 font-weight:900;
 color:#137333;
 margin:5px 0
 }
-
-.muted{
-font-size:13px;
-color:#69736c
-}
+.muted{font-size:13px;color:#69736c}
 
 .bar{
 display:flex;
@@ -155,12 +124,7 @@ justify-content:space-between;
 gap:8px;
 margin:15px 0 10px
 }
-
-.actions{
-display:flex;
-gap:8px;
-flex-wrap:wrap
-}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
 
 .cart{
 position:fixed;
@@ -185,7 +149,6 @@ display:grid;
 grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
 gap:10px
 }
-
 .stat{
 padding:15px;
 background:#f0f6f1;
@@ -210,7 +173,6 @@ z-index:30;
 align-items:flex-end;
 justify-content:center
 }
-
 .modal.show{display:flex}
 
 .sheet{
@@ -228,19 +190,10 @@ border-radius:16px;
 padding:16px;
 margin:16px 0
 }
-
 .info h3{margin-top:0}
 
-.small{
-font-size:12px;
-color:#69736c
-}
-
-.empty{
-text-align:center;
-padding:30px;
-color:#69736c
-}
+.small{font-size:12px;color:#69736c}
+.empty{text-align:center;padding:30px;color:#69736c}
 
 .offer{
 background:#fff4c7;
@@ -250,9 +203,7 @@ padding:15px;
 margin:12px 0
 }
 
-.popular{
-border:2px solid #f6b51b
-}
+.popular{border:2px solid #f6b51b}
 
 footer{
 text-align:center;
@@ -270,29 +221,15 @@ padding:30px 10px
 flex-direction:column;
 align-items:flex-start
 }
-
 .hero h1{font-size:24px}
-
-.search{
-flex-direction:column
-}
-
-.search button{
-width:100%
-}
-
+.search{flex-direction:column}
+.search button{width:100%}
 .grid{
 grid-template-columns:repeat(2,1fr);
 gap:9px
 }
-
-.card{
-padding:10px
-}
-
-.emoji{
-font-size:32px
-}
+.card{padding:10px}
+.emoji{font-size:32px}
 }
 </style>
 </head>
@@ -308,26 +245,16 @@ font-size:32px
 
 <main class="wrap">
 
+<!-- CUSTOMER WEBSITE -->
 <section id="customer" class="customer">
 
 <div class="hero">
-
 <h1>घर का सामान, अब आसानी से</h1>
-
 <div>खुरई में आपकी अपनी किराना दुकान</div>
 
 <div class="search">
-
-<input
-id="search"
-placeholder="सामान खोजें..."
-autocomplete="off"
->
-
-<button class="btn white" onclick="openCart()">
-कार्ट 🛒
-</button>
-
+<input id="search" placeholder="सामान खोजें..." autocomplete="off">
+<button class="btn white" onclick="openCart()">कार्ट 🛒</button>
 </div>
 </div>
 
@@ -337,53 +264,34 @@ autocomplete="off"
 📞 Call Now
 </a>
 
-<a
-class="btn"
+<a class="btn"
 href="https://wa.me/919329890431"
-target="_blank"
-rel="noopener"
->
+target="_blank">
 💬 WhatsApp
 </a>
 
-<a
-class="btn blue"
+<a class="btn blue"
 href="https://www.google.com/maps/search/?api=1&query=Shastri+Ward+Plot+Gali+No+2+Khurai+Sagar+470117"
-target="_blank"
-rel="noopener"
->
+target="_blank">
 📍 रास्ता देखें
 </a>
 
 </div>
 
 <div class="info">
-
 <h3>🏪 श्री हरि किराना दुकान</h3>
-
-<div>
-📍 Shastri Ward, Plot Gali No. 2, Khurai, Sagar, 470117
-</div>
-
-<div>
-📞 9329890431
-</div>
-
+<div>📍 Shastri Ward, Plot Gali No. 2, Khurai, Sagar, 470117</div>
+<div>📞 9329890431</div>
 </div>
 
 <div id="offers"></div>
-
 <div id="popular"></div>
 
 <div id="cats" class="tabs"></div>
 
 <div class="bar">
 <h2>सामान</h2>
-
-<button class="btn" onclick="openAdmin()">
-🔐 एडमिन
-</button>
-
+<button class="btn" onclick="openAdmin()">🔐 एडमिन</button>
 </div>
 
 <div id="products" class="grid"></div>
@@ -392,17 +300,11 @@ rel="noopener"
 
 
 <!-- ADMIN PANEL -->
-
 <section id="admin" class="admin">
 
 <div class="bar">
-
 <h2>🔐 एडमिन पैनल</h2>
-
-<button class="btn" onclick="closeAdmin()">
-ग्राहक साइट
-</button>
-
+<button class="btn" onclick="closeAdmin()">ग्राहक साइट</button>
 </div>
 
 
@@ -415,6 +317,23 @@ rel="noopener"
 </div>
 
 
+<!-- 47 PRODUCTS LOAD BUTTON -->
+<div class="panel">
+
+<h3>🛍️ सामान</h3>
+
+<p class="small">
+नीचे वाला बटन आपके 47 किराना सामान को वेबसाइट पर वापस लोड करेगा।
+</p>
+
+<button class="btn orange" onclick="load47Products()">
+🔄 47 सामान लोड करें
+</button>
+
+</div>
+
+
+<!-- OFFER -->
 <div class="panel">
 
 <h3>🎁 ऑफर प्रबंधन</h3>
@@ -422,8 +341,7 @@ rel="noopener"
 <input
 id="oname"
 class="input"
-placeholder="ऑफर जैसे: आज सभी बिस्कुट पर 10% OFF"
->
+placeholder="ऑफर जैसे: आज सभी सामान पर 10% OFF">
 
 <br><br>
 
@@ -444,51 +362,45 @@ placeholder="ऑफर जैसे: आज सभी बिस्कुट प�
 </div>
 
 
+<!-- NEW PRODUCT -->
 <div class="panel">
 
 <h3>➕ नया सामान जोड़ें</h3>
 
 <input id="pn" class="input" placeholder="सामान का नाम">
-
 <br><br>
 
 <input id="pc" class="input" placeholder="श्रेणी">
+<br><br>
 
+<input id="pu" class="input" placeholder="यूनिट जैसे किलो / लीटर / नग">
 <br><br>
 
 <input id="pp" class="input" type="number" placeholder="कीमत ₹">
-
 <br><br>
 
-<input id="ps" class="input" type="number" placeholder="स्टॉक">
-
+<input id="ps" class="input" type="number" placeholder="मात्रा">
 <br><br>
 
 <input id="pe" class="input" placeholder="इमोजी जैसे 🍚">
-
 <br><br>
 
-<label class="small">⭐ Popular सामान</label>
-
-<br><br>
-
-<button
-id="pPopular"
+<button id="pPopular"
 class="btn orange"
-onclick="toggleNewPopular()"
->
-नहीं
+onclick="toggleNewPopular()">
+⭐ Popular: नहीं
 </button>
 
 <br><br>
 
 <button class="btn" onclick="addProduct()">
-सेव करें
+💾 सामान सेव करें
 </button>
 
 </div>
 
 
+<!-- INVENTORY -->
 <div class="panel">
 
 <h3>✏️ सामान और स्टॉक प्रबंधन</h3>
@@ -498,6 +410,7 @@ onclick="toggleNewPopular()"
 </div>
 
 
+<!-- ORDERS -->
 <div class="panel">
 
 <h3>📋 ऑर्डर इतिहास</h3>
@@ -521,18 +434,14 @@ onclick="toggleNewPopular()"
 </footer>
 
 
+<!-- CART MODAL -->
 <div id="modal" class="modal">
 
 <div class="sheet">
 
 <div class="bar">
-
-<h2>कार्ट</h2>
-
-<button class="btn" onclick="closeModal()">
-✕
-</button>
-
+<h2>🛒 कार्ट</h2>
+<button class="btn" onclick="closeModal()">✕</button>
 </div>
 
 <div id="mb"></div>
@@ -544,12 +453,16 @@ onclick="toggleNewPopular()"
 
 <script>
 
+/* ===============================
+   ADMIN PIN
+================================ */
+
 const ADMIN_PIN="159632";
 
 
-/* ==========================
-   47 PRODUCTS
-========================== */
+/* ===============================
+   आपके 47 PRODUCTS
+================================ */
 
 const seed=[
 
@@ -613,69 +526,82 @@ const seed=[
 ];
 
 
-let oldProducts=
-JSON.parse(localStorage.getItem("shriProductsPro")||"null");
+/* ===============================
+   DATA
+================================ */
 
+let savedProducts=
+JSON.parse(
+localStorage.getItem("shriProductsPro")||"null"
+);
 
-let products=oldProducts||seed.map((x,i)=>({
+let products;
+
+if(savedProducts && savedProducts.length){
+
+products=savedProducts;
+
+}else{
+
+products=seed.map(x=>({
 
 name:x[0],
 cat:x[1],
 unit:x[2],
-price:x[4],
 stock:Number(x[3])||0,
+price:Number(x[4])||0,
 emoji:x[5],
-popular:x[6]
+popular:!!x[6]
 
 }));
 
+localStorage.setItem(
+"shriProductsPro",
+JSON.stringify(products)
+);
+
+}
+
 
 let cart=
-JSON.parse(localStorage.getItem("shriCartPro")||"{}");
+JSON.parse(
+localStorage.getItem("shriCartPro")||"{}"
+);
 
 let orders=
-JSON.parse(localStorage.getItem("shriOrdersPro")||"[]");
+JSON.parse(
+localStorage.getItem("shriOrdersPro")||"[]"
+);
 
 let offers=
-JSON.parse(localStorage.getItem("shriOffersPro")||"[]");
+JSON.parse(
+localStorage.getItem("shriOffersPro")||"[]"
+);
 
 let active="सभी";
 let newPopular=false;
 
 
-const catsEl=
-document.getElementById("cats");
+/* ===============================
+   ELEMENTS
+================================ */
 
-const productsEl=
-document.getElementById("products");
+const catsEl=document.getElementById("cats");
+const productsEl=document.getElementById("products");
+const search=document.getElementById("search");
+const count=document.getElementById("count");
+const stats=document.getElementById("stats");
+const inventory=document.getElementById("inventory");
+const ordersEl=document.getElementById("orders");
+const modal=document.getElementById("modal");
+const mb=document.getElementById("mb");
+const customer=document.getElementById("customer");
+const admin=document.getElementById("admin");
 
-const search=
-document.getElementById("search");
 
-const count=
-document.getElementById("count");
-
-const stats=
-document.getElementById("stats");
-
-const inventory=
-document.getElementById("inventory");
-
-const ordersEl=
-document.getElementById("orders");
-
-const modal=
-document.getElementById("modal");
-
-const mb=
-document.getElementById("mb");
-
-const customer=
-document.getElementById("customer");
-
-const admin=
-document.getElementById("admin");
-
+/* ===============================
+   SAVE
+================================ */
 
 function save(){
 
@@ -704,6 +630,10 @@ render();
 }
 
 
+/* ===============================
+   ESCAPE
+================================ */
+
 function esc(v){
 
 return String(v).replace(
@@ -720,6 +650,10 @@ m=>({
 }
 
 
+/* ===============================
+   RENDER
+================================ */
+
 function render(){
 
 let cats=[
@@ -727,8 +661,7 @@ let cats=[
 ...new Set(products.map(p=>p.cat))
 ];
 
-catsEl.innerHTML=
-cats.map(c=>`
+catsEl.innerHTML=cats.map(c=>`
 
 <button
 class="tab ${c===active?"active":""}"
@@ -744,11 +677,9 @@ let q=
 search.value.toLowerCase().trim();
 
 
-let list=
-products.filter(p=>
+let list=products.filter(p=>
 
 (active==="सभी"||p.cat===active)&&
-
 (
 p.name.toLowerCase().includes(q)||
 p.cat.toLowerCase().includes(q)
@@ -758,6 +689,7 @@ p.cat.toLowerCase().includes(q)
 
 
 productsEl.innerHTML=
+
 list.length
 
 ?
@@ -799,9 +731,9 @@ ${p.stock<=0?"disabled":""}
 onclick='addCart(${JSON.stringify(p.name)})'
 >
 
-${p.stock>0
-?"🛒 कार्ट में डालें"
-:"स्टॉक खत्म"}
+${p.stock>0?
+"🛒 कार्ट में डालें":
+"स्टॉक खत्म"}
 
 </button>
 
@@ -816,10 +748,13 @@ ${p.stock>0
 </div>`;
 
 
+/* OFFERS */
+
 let activeOffers=
 offers.filter(o=>o.active);
 
 document.getElementById("offers").innerHTML=
+
 activeOffers.length
 
 ?
@@ -835,6 +770,8 @@ activeOffers.map(o=>`
 :"";
 
 
+/* POPULAR */
+
 let pops=
 products.filter(
 p=>p.popular&&p.stock>0
@@ -842,6 +779,7 @@ p=>p.popular&&p.stock>0
 
 
 document.getElementById("popular").innerHTML=
+
 pops.length
 
 ?
@@ -887,11 +825,15 @@ onclick='addCart(${JSON.stringify(p.name)})'
 :"";
 
 
+/* COUNT */
+
 count.textContent=
 Object.values(cart).reduce(
 (a,b)=>a+b,0
 );
 
+
+/* STATS */
 
 stats.innerHTML=`
 
@@ -918,7 +860,14 @@ stats.innerHTML=`
 `;
 
 
+/* INVENTORY */
+
 inventory.innerHTML=
+
+products.length
+
+?
+
 products.map((p,i)=>`
 
 <div class="row">
@@ -944,14 +893,14 @@ ${esc(p.cat)}
 class="btn"
 onclick="editProduct(${i})"
 >
-✏️ बदलें
+✏️
 </button>
 
 <button
 class="btn orange"
 onclick="togglePopular(${i})"
 >
-⭐ ${p.popular?"हटाएँ":"Popular"}
+⭐
 </button>
 
 <button
@@ -965,10 +914,17 @@ onclick="deleteProduct(${i})"
 
 </div>
 
-`).join("");
+`).join("")
 
+:
+
+"अभी कोई सामान नहीं है।";
+
+
+/* ORDERS */
 
 ordersEl.innerHTML=
+
 orders.length
 
 ?
@@ -990,8 +946,8 @@ ${esc(o.address)}
 ${esc(o.items||"")}
 
 ${o.note?
-"<br>📝 "+esc(o.note)
-:""}
+"<br>📝 "+esc(o.note):
+""}
 
 <br>
 
@@ -1001,20 +957,20 @@ ${esc(o.date)}
 
 </span>
 
-<b>
-₹${o.total}
-</b>
+<b>₹${o.total}</b>
 
 </div>
 
 `).join("")
 
-:"अभी कोई ऑर्डर नहीं।";
+:
+
+"अभी कोई ऑर्डर नहीं।";
 
 
-document.getElementById(
-"offerAdmin"
-).innerHTML=
+/* OFFER ADMIN */
+
+document.getElementById("offerAdmin").innerHTML=
 
 offers.length
 
@@ -1027,9 +983,11 @@ offers.map((o,i)=>`
 <span>
 🎁 ${esc(o.text)}
 <br>
+
 <span class="small">
 ${o.active?"चालू":"बंद"}
 </span>
+
 </span>
 
 <span class="actions">
@@ -1038,7 +996,7 @@ ${o.active?"चालू":"बंद"}
 class="btn"
 onclick="toggleOffer(${i})"
 >
-${o.active?"बंद करें":"चालू करें"}
+${o.active?"बंद":"चालू"}
 </button>
 
 <button
@@ -1054,22 +1012,67 @@ onclick="deleteOffer(${i})"
 
 `).join("")
 
-:"अभी कोई ऑफर नहीं।";
+:
+
+"अभी कोई ऑफर नहीं।";
 
 }
 
 
+/* ===============================
+   LOAD 47 PRODUCTS
+================================ */
+
+function load47Products(){
+
+if(!confirm(
+"क्या 47 सामान वेबसाइट में लोड करना है?"
+))return;
+
+
+products=seed.map(x=>({
+
+name:x[0],
+cat:x[1],
+unit:x[2],
+stock:Number(x[3])||0,
+price:Number(x[4])||0,
+emoji:x[5],
+popular:!!x[6]
+
+}));
+
+
+localStorage.setItem(
+"shriProductsPro",
+JSON.stringify(products)
+);
+
+
+active="सभी";
+
+render();
+
+
+alert(
+"✅ आपके 47 सामान वेबसाइट में लोड हो गए!"
+);
+
+}
+
+
+/* ===============================
+   CART
+================================ */
+
 function addCart(name){
 
 let p=
-products.find(
-x=>x.name===name
-);
+products.find(x=>x.name===name);
 
 if(!p||p.stock<=0)return;
 
-let q=
-cart[name]||0;
+let q=cart[name]||0;
 
 if(q>=p.stock){
 
@@ -1084,6 +1087,21 @@ return;
 cart[name]=q+1;
 
 save();
+
+}
+
+
+function minusCart(name){
+
+cart[name]--;
+
+if(cart[name]<=0){
+delete cart[name];
+}
+
+save();
+
+openCart();
 
 }
 
@@ -1104,20 +1122,23 @@ return;
 
 }
 
+
 let total=0;
+
 
 let html=
 keys.map(k=>{
 
 let p=
-products.find(
-x=>x.name===k
-);
+products.find(x=>x.name===k);
 
-let q=
-cart[k];
+if(!p)return "";
 
-total+=p.price*q;
+let q=cart[k];
+
+total+=
+Number(p.price)*q;
+
 
 return `
 
@@ -1163,9 +1184,7 @@ onclick='addCart(${JSON.stringify(k)});openCart()'
 
 html+=`
 
-<h3>
-कुल: ₹${total}
-</h3>
+<h3>कुल: ₹${total}</h3>
 
 <input
 id="cn"
@@ -1210,21 +1229,6 @@ modal.classList.add("show");
 }
 
 
-function minusCart(name){
-
-cart[name]--;
-
-if(cart[name]<=0){
-delete cart[name]
-}
-
-save();
-
-openCart();
-
-}
-
-
 function placeOrder(total){
 
 let n=
@@ -1255,14 +1259,12 @@ let items=
 Object.keys(cart).map(k=>{
 
 let p=
-products.find(
-x=>x.name===k
-);
+products.find(x=>x.name===k);
 
 return p?
 `${p.name} × ${cart[k]}`:"";
 
-}).join(", ");
+}).filter(Boolean).join(", ");
 
 
 orders.push({
@@ -1280,9 +1282,7 @@ date:new Date().toLocaleString("hi-IN")
 for(let k in cart){
 
 let p=
-products.find(
-x=>x.name===k
-);
+products.find(x=>x.name===k);
 
 if(p){
 
@@ -1321,11 +1321,13 @@ window.open(
 
 
 function closeModal(){
-
 modal.classList.remove("show");
-
 }
 
+
+/* ===============================
+   ADMIN
+================================ */
 
 function openAdmin(){
 
@@ -1356,24 +1358,136 @@ customer.classList.remove("hide");
 }
 
 
+/* ===============================
+   PRODUCT MANAGEMENT
+================================ */
+
+function addProduct(){
+
+let n=
+document.getElementById("pn")
+.value.trim();
+
+let c=
+document.getElementById("pc")
+.value.trim()||"किराना";
+
+let u=
+document.getElementById("pu")
+.value.trim()||"नग";
+
+let p=
+Number(
+document.getElementById("pp").value
+)||0;
+
+let s=
+Number(
+document.getElementById("ps").value
+)||0;
+
+let e=
+document.getElementById("pe")
+.value.trim()||"🛍️";
+
+
+if(!n){
+
+alert("सामान का नाम भरें।");
+
+return;
+
+}
+
+
+products.push({
+
+name:n,
+cat:c,
+unit:u,
+price:p,
+stock:s,
+emoji:e,
+popular:newPopular
+
+});
+
+
+document.getElementById("pn").value="";
+document.getElementById("pc").value="";
+document.getElementById("pu").value="";
+document.getElementById("pp").value="";
+document.getElementById("ps").value="";
+document.getElementById("pe").value="";
+
+newPopular=false;
+
+document.getElementById(
+"pPopular"
+).textContent=
+"⭐ Popular: नहीं";
+
+
+save();
+
+alert(
+"✅ नया सामान जोड़ दिया गया।"
+);
+
+}
+
+
+function toggleNewPopular(){
+
+newPopular=!newPopular;
+
+document.getElementById(
+"pPopular"
+).textContent=
+newPopular?
+"⭐ Popular: हाँ":
+"⭐ Popular: नहीं";
+
+}
+
+
 function editProduct(i){
 
 let p=products[i];
 
+
 let name=
-prompt("सामान का नाम",p.name);
+prompt(
+"सामान का नाम",
+p.name
+);
 
 if(name===null)return;
 
 
+let unit=
+prompt(
+"यूनिट",
+p.unit||"नग"
+);
+
+if(unit===null)return;
+
+
 let price=
-prompt("कीमत ₹",p.price);
+prompt(
+"प्राइस ₹",
+p.price
+);
 
 if(price===null)return;
 
 
 let stock=
-prompt("मात्रा / स्टॉक",p.stock);
+prompt(
+"मात्रा",
+p.stock
+);
 
 if(stock===null)return;
 
@@ -1381,11 +1495,17 @@ if(stock===null)return;
 p.name=
 name.trim()||p.name;
 
+p.unit=
+unit.trim()||"नग";
+
 p.price=
-Number(price);
+Number(price)||0;
 
 p.stock=
-Math.max(0,Number(stock)||0);
+Math.max(
+0,
+Number(stock)||0
+);
 
 
 save();
@@ -1424,86 +1544,9 @@ save();
 }
 
 
-function addProduct(){
-
-let n=
-document.getElementById("pn")
-.value.trim();
-
-let c=
-document.getElementById("pc")
-.value.trim()||"किराना";
-
-let p=
-Number(
-document.getElementById("pp").value
-);
-
-let s=
-Number(
-document.getElementById("ps").value
-)||0;
-
-let e=
-document.getElementById("pe")
-.value.trim()||"🛍️";
-
-
-if(!n){
-
-alert(
-"सामान का नाम भरें।"
-);
-
-return;
-
-}
-
-
-products.push({
-
-name:n,
-cat:c,
-price:p||0,
-stock:s,
-emoji:e,
-popular:newPopular
-
-});
-
-
-document.getElementById("pn").value="";
-document.getElementById("pc").value="";
-document.getElementById("pp").value="";
-document.getElementById("ps").value="";
-document.getElementById("pe").value="";
-
-newPopular=false;
-
-document.getElementById(
-"pPopular"
-).textContent="नहीं";
-
-save();
-
-alert(
-"✅ नया सामान जोड़ दिया गया।"
-);
-
-}
-
-
-function toggleNewPopular(){
-
-newPopular=!newPopular;
-
-document.getElementById(
-"pPopular"
-).textContent=
-newPopular?"हाँ ⭐":"नहीं";
-
-}
-
+/* ===============================
+   OFFERS
+================================ */
 
 function addOffer(){
 
@@ -1523,11 +1566,15 @@ return;
 
 }
 
+
 offers.push({
+
 text:text,
 active:true,
 date:new Date().toLocaleString("hi-IN")
+
 });
+
 
 input.value="";
 
@@ -1572,11 +1619,19 @@ save();
 }
 
 
+/* ===============================
+   SEARCH
+================================ */
+
 search.addEventListener(
 "input",
 render
 );
 
+
+/* ===============================
+   START
+================================ */
 
 render();
 
