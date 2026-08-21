@@ -8,405 +8,291 @@
 
 <style>
 *{box-sizing:border-box}
-
 body{
-  margin:0;
-  font-family:system-ui,"Noto Sans Devanagari",sans-serif;
-  background:#fffaf0;
-  color:#182019;
+margin:0;
+font-family:system-ui,sans-serif;
+background:#fffaf0;
+color:#182019
 }
 
 header{
-  background:#137333;
-  color:#fff;
-  padding:13px 15px;
-  position:sticky;
-  top:0;
-  z-index:10;
-  box-shadow:0 2px 8px #0003
+background:#137333;
+color:#fff;
+padding:13px 15px;
+position:sticky;
+top:0;
+z-index:10
 }
 
 .head{
-  max-width:1150px;
-  margin:auto;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px
+max-width:1150px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px
 }
 
 .brand{
-  font-size:20px;
-  font-weight:800
+font-size:20px;
+font-weight:800
 }
 
 .wrap{
-  max-width:1150px;
-  margin:auto;
-  padding:16px
+max-width:1150px;
+margin:auto;
+padding:16px
 }
 
 .hero{
-  background:linear-gradient(135deg,#137333,#2e9e55);
-  color:#fff;
-  border-radius:20px;
-  padding:25px;
-  margin-bottom:16px
+background:linear-gradient(135deg,#137333,#2e9e55);
+color:#fff;
+border-radius:20px;
+padding:25px;
+margin-bottom:16px
 }
 
 .hero h1{
-  margin:0 0 8px;
-  font-size:30px
+margin:0 0 8px;
+font-size:30px
 }
 
 .search{
-  display:flex;
-  gap:8px;
-  margin-top:15px
+display:flex;
+gap:8px;
+margin-top:15px
 }
 
-.search input,
-.input{
-  width:100%;
-  padding:12px;
-  border:1px solid #d5ddd7;
-  border-radius:10px;
-  font-size:15px
+.search input,.input{
+width:100%;
+padding:12px;
+border:1px solid #d5ddd7;
+border-radius:10px;
+font-size:15px
 }
 
-.search input{
-  border:0
-}
+.search input{border:0}
 
 .btn{
-  border:0;
-  border-radius:10px;
-  padding:11px 15px;
-  font-weight:800;
-  cursor:pointer;
-  background:#137333;
-  color:#fff
+border:0;
+border-radius:10px;
+padding:11px 15px;
+font-weight:800;
+cursor:pointer;
+background:#137333;
+color:#fff
 }
 
-.white{
-  background:#fff;
-  color:#137333
-}
-
-.red{
-  background:#c62828
-}
-
-.orange{
-  background:#f6b51b;
-  color:#111
-}
-
-.blue{
-  background:#1976d2
-}
-
-.gold{
-  background:#f6b51b;
-  color:#111
-}
+.white{background:#fff;color:#137333}
+.red{background:#c62828}
+.orange{background:#f6b51b;color:#111}
+.blue{background:#1976d2}
+.gold{background:#f6b51b;color:#111}
 
 .tabs{
-  display:flex;
-  gap:8px;
-  overflow:auto;
-  padding:2px 0 12px
+display:flex;
+gap:8px;
+overflow:auto;
+padding:2px 0 12px
 }
 
 .tab{
-  border:1px solid #d7ded8;
-  background:#fff;
-  border-radius:99px;
-  padding:9px 14px;
-  white-space:nowrap;
-  cursor:pointer
+border:1px solid #d7ded8;
+background:#fff;
+border-radius:99px;
+padding:9px 14px;
+white-space:nowrap;
+cursor:pointer
 }
 
 .active{
-  background:#137333!important;
-  color:#fff
+background:#137333!important;
+color:#fff
 }
 
-.bar{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:8px;
-  margin:15px 0 10px
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(170px,1fr));
+gap:12px
 }
 
-.actions{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap
+.card,.panel{
+background:#fff;
+border-radius:16px;
+padding:14px;
+box-shadow:0 2px 8px #0001
 }
 
-/* TABLE */
-
-.table-box{
-  background:#fff;
-  border-radius:16px;
-  overflow:auto;
-  box-shadow:0 2px 8px #0001
+.emoji{
+text-align:center;
+font-size:42px;
+background:#eef6ef;
+border-radius:12px;
+padding:10px
 }
 
-.product-table{
-  width:100%;
-  min-width:760px;
-  border-collapse:collapse
-}
-
-.product-table th{
-  background:#137333;
-  color:#fff;
-  padding:12px 9px;
-  text-align:center;
-  position:sticky;
-  top:0;
-  z-index:2
-}
-
-.product-table td{
-  padding:11px 9px;
-  border-bottom:1px solid #eee;
-  text-align:center
-}
-
-.product-table td:nth-child(2){
-  text-align:left;
-  font-weight:700
-}
-
-.product-table tbody tr:hover{
-  background:#f3faf4
-}
-
-.product-table tr.popular-row{
-  background:#fff9df
+.name{
+font-weight:800;
+margin-top:8px
 }
 
 .price{
-  color:#137333;
-  font-weight:900;
-  font-size:17px
+font-size:18px;
+font-weight:900;
+color:#137333;
+margin:5px 0
 }
 
-.stock-ok{
-  color:#137333;
-  font-weight:700
+.muted{
+font-size:13px;
+color:#69736c
 }
 
-.stock-low{
-  color:#d97706;
-  font-weight:800
+.bar{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:8px;
+margin:15px 0 10px
 }
 
-.stock-out{
-  color:#c62828;
-  font-weight:800
-}
-
-.badge{
-  display:inline-block;
-  padding:4px 9px;
-  border-radius:20px;
-  background:#e8f5e9;
-  color:#137333;
-  font-size:12px;
-  font-weight:700
-}
-
-.cart-mini{
-  border:0;
-  background:#137333;
-  color:#fff;
-  border-radius:8px;
-  padding:7px 10px;
-  font-weight:800;
-  cursor:pointer
-}
-
-.cart-mini:disabled{
-  background:#aaa;
-  cursor:not-allowed
-}
-
-.offer{
-  background:#fff4c7;
-  border:1px solid #efd56b;
-  border-radius:16px;
-  padding:15px;
-  margin:12px 0
-}
-
-.popular{
-  border:2px solid #f6b51b
-}
-
-.panel{
-  background:#fff;
-  border-radius:16px;
-  padding:14px;
-  box-shadow:0 2px 8px #0001;
-  margin-bottom:14px
-}
-
-.admin{
-  display:none
-}
-
-.admin.show{
-  display:block
-}
-
-.customer.hide{
-  display:none
-}
-
-.stats{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:10px
-}
-
-.stat{
-  padding:15px;
-  background:#f0f6f1;
-  border-radius:12px
-}
-
-.row{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:8px;
-  padding:11px 0;
-  border-bottom:1px solid #eee
-}
-
-.inventory-item{
-  display:grid;
-  grid-template-columns:1fr 90px 110px 90px auto;
-  gap:8px;
-  align-items:center;
-  padding:10px 0;
-  border-bottom:1px solid #eee
-}
-
-.inventory-item input{
-  width:100%;
-  padding:8px;
-  border:1px solid #ccc;
-  border-radius:7px
-}
-
-.small{
-  font-size:12px;
-  color:#69736c
-}
-
-.empty{
-  text-align:center;
-  padding:30px;
-  color:#69736c
+.actions{
+display:flex;
+gap:8px;
+flex-wrap:wrap
 }
 
 .cart{
-  position:fixed;
-  right:15px;
-  bottom:15px;
-  background:#f6b51b;
-  color:#111;
-  border:0;
-  border-radius:99px;
-  padding:14px 18px;
-  font-weight:900;
-  z-index:20;
-  cursor:pointer;
-  box-shadow:0 3px 10px #0003
+position:fixed;
+right:15px;
+bottom:15px;
+background:#f6b51b;
+color:#111;
+border:0;
+border-radius:99px;
+padding:14px 18px;
+font-weight:900;
+z-index:20;
+cursor:pointer
+}
+
+.admin{display:none}
+.admin.show{display:block}
+.customer.hide{display:none}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:10px
+}
+
+.stat{
+padding:15px;
+background:#f0f6f1;
+border-radius:12px
+}
+
+.row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:8px;
+padding:11px 0;
+border-bottom:1px solid #eee
 }
 
 .modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:#0008;
-  z-index:30;
-  align-items:flex-end;
-  justify-content:center
+display:none;
+position:fixed;
+inset:0;
+background:#0008;
+z-index:30;
+align-items:flex-end;
+justify-content:center
 }
 
-.modal.show{
-  display:flex
-}
+.modal.show{display:flex}
 
 .sheet{
-  background:#fff;
-  width:min(650px,100%);
-  max-height:92vh;
-  overflow:auto;
-  border-radius:22px 22px 0 0;
-  padding:18px
+background:#fff;
+width:min(650px,100%);
+max-height:92vh;
+overflow:auto;
+border-radius:22px 22px 0 0;
+padding:18px
 }
 
 .info{
-  background:#eef6ef;
-  border-radius:16px;
-  padding:16px;
-  margin:16px 0
+background:#eef6ef;
+border-radius:16px;
+padding:16px;
+margin:16px 0
 }
 
-.info h3{
-  margin-top:0
+.info h3{margin-top:0}
+
+.small{
+font-size:12px;
+color:#69736c
+}
+
+.empty{
+text-align:center;
+padding:30px;
+color:#69736c
+}
+
+.offer{
+background:#fff4c7;
+border:1px solid #efd56b;
+border-radius:16px;
+padding:15px;
+margin:12px 0
+}
+
+.popular{
+border:2px solid #f6b51b
 }
 
 footer{
-  text-align:center;
-  color:#69736c;
-  padding:30px 10px
+text-align:center;
+color:#69736c;
+padding:30px 10px
 }
 
 @media(min-width:700px){
-  .modal{
-    align-items:center
-  }
-
-  .sheet{
-    border-radius:20px
-  }
+.modal{align-items:center}
+.sheet{border-radius:20px}
 }
 
-@media(max-width:700px){
+@media(max-width:600px){
+.head{
+flex-direction:column;
+align-items:flex-start
+}
 
-  .head{
-    flex-direction:column;
-    align-items:flex-start
-  }
+.hero h1{font-size:24px}
 
-  .hero h1{
-    font-size:24px
-  }
+.search{
+flex-direction:column
+}
 
-  .search{
-    flex-direction:column
-  }
+.search button{
+width:100%
+}
 
-  .search button{
-    width:100%
-  }
+.grid{
+grid-template-columns:repeat(2,1fr);
+gap:9px
+}
 
-  .inventory-item{
-    grid-template-columns:1fr 80px 80px
-  }
+.card{
+padding:10px
+}
 
-  .inventory-item button{
-    grid-column:span 1
-  }
+.emoji{
+font-size:32px
+}
 }
 </style>
 </head>
@@ -414,10 +300,10 @@ footer{
 <body>
 
 <header>
-  <div class="head">
-    <div class="brand">🛒 श्री हरि किराना दुकान</div>
-    <div>📞 9329890431 · खुरई</div>
-  </div>
+<div class="head">
+<div class="brand">🛒 श्री हरि किराना दुकान</div>
+<div>📞 9329890431 · खुरई</div>
+</div>
 </header>
 
 <main class="wrap">
@@ -434,7 +320,7 @@ footer{
 
 <input
 id="search"
-placeholder="🔎 सामान खोजें..."
+placeholder="सामान खोजें..."
 autocomplete="off"
 >
 
@@ -443,7 +329,6 @@ autocomplete="off"
 </button>
 
 </div>
-
 </div>
 
 <div class="actions">
@@ -488,40 +373,25 @@ rel="noopener"
 
 <div id="offers"></div>
 
-<div class="bar">
-  <h2>📦 सामान की सूची</h2>
-</div>
+<div id="popular"></div>
 
 <div id="cats" class="tabs"></div>
 
-<div class="table-box">
+<div class="bar">
+<h2>सामान</h2>
 
-<table class="product-table">
-
-<thead>
-
-<tr>
-<th>क्र.</th>
-<th>प्रोडक्ट का नाम</th>
-<th>कैटेगरी</th>
-<th>यूनिट</th>
-<th>मात्रा</th>
-<th>प्राइस</th>
-<th>कार्ट</th>
-</tr>
-
-</thead>
-
-<tbody id="products"></tbody>
-
-</table>
+<button class="btn" onclick="openAdmin()">
+🔐 एडमिन
+</button>
 
 </div>
+
+<div id="products" class="grid"></div>
 
 </section>
 
 
-<!-- ADMIN -->
+<!-- ADMIN PANEL -->
 
 <section id="admin" class="admin">
 
@@ -574,58 +444,31 @@ placeholder="ऑफर जैसे: आज सभी बिस्कुट प�
 </div>
 
 
-<!-- नया सामान -->
-
 <div class="panel">
 
 <h3>➕ नया सामान जोड़ें</h3>
 
-<input
-id="pn"
-class="input"
-placeholder="प्रोडक्ट का नाम"
->
+<input id="pn" class="input" placeholder="सामान का नाम">
 
 <br><br>
 
-<input
-id="pc"
-class="input"
-placeholder="कैटेगरी"
->
+<input id="pc" class="input" placeholder="श्रेणी">
 
 <br><br>
 
-<input
-id="pu"
-class="input"
-placeholder="यूनिट जैसे किलो / लीटर / नग"
->
+<input id="pp" class="input" type="number" placeholder="कीमत ₹">
 
 <br><br>
 
-<input
-id="pq"
-class="input"
-placeholder="मात्रा"
->
+<input id="ps" class="input" type="number" placeholder="स्टॉक">
 
 <br><br>
 
-<input
-id="pp"
-class="input"
-type="number"
-placeholder="प्राइस ₹"
->
+<input id="pe" class="input" placeholder="इमोजी जैसे 🍚">
 
 <br><br>
 
-<input
-id="pe"
-class="input"
-placeholder="इमोजी जैसे 🍚"
->
+<label class="small">⭐ Popular सामान</label>
 
 <br><br>
 
@@ -634,7 +477,7 @@ id="pPopular"
 class="btn orange"
 onclick="toggleNewPopular()"
 >
-Popular नहीं
+नहीं
 </button>
 
 <br><br>
@@ -646,24 +489,14 @@ Popular नहीं
 </div>
 
 
-<!-- INVENTORY -->
-
 <div class="panel">
 
-<h3>✏️ सामान, मात्रा और प्राइस प्रबंधन</h3>
-
-<div class="small">
-यहाँ से मात्रा और प्राइस बदलकर सेव कर सकते हैं।
-</div>
-
-<br>
+<h3>✏️ सामान और स्टॉक प्रबंधन</h3>
 
 <div id="inventory"></div>
 
 </div>
 
-
-<!-- ORDERS -->
 
 <div class="panel">
 
@@ -694,7 +527,7 @@ Popular नहीं
 
 <div class="bar">
 
-<h2 id="mt">कार्ट</h2>
+<h2>कार्ट</h2>
 
 <button class="btn" onclick="closeModal()">
 ✕
@@ -711,20 +544,16 @@ Popular नहीं
 
 <script>
 
-/* =========================
-   ADMIN PIN
-========================= */
-
 const ADMIN_PIN="159632";
 
 
-/* =========================
+/* ==========================
    47 PRODUCTS
-========================= */
+========================== */
 
 const seed=[
 
-["चावल","अनाज","किलो","00","00","🍚",false],
+["चावल","अनाज","किलो","00","00","🍚",true],
 ["आटा","अनाज","किलो","00","00","🌾",true],
 ["मैदा","अनाज","किलो","00","00","🌾",false],
 ["बेसन","अनाज","किलो","00","00","🟡",false],
@@ -766,12 +595,10 @@ const seed=[
 
 ["टमाटर सॉस","सॉस","लीटर","00","00","🍅",false],
 ["चिली सॉस","सॉस","लीटर","00","00","🌶️",false],
-
 ["सिरका","अन्य","लीटर","00","00","🍶",false],
 ["कॉर्नफ्लोर","अन्य","किलो","00","00","🌾",false],
 
 ["पापड़","स्नैक्स","किलो","00","00","🥨",false],
-
 ["अचार","अचार","किलो","00","00","🥒",false],
 
 ["चाय पत्ती","पेय पदार्थ","किलो","00","00","☕",true],
@@ -786,21 +613,17 @@ const seed=[
 ];
 
 
-/* =========================
-   LOAD DATA
-========================= */
+let oldProducts=
+JSON.parse(localStorage.getItem("shriProductsPro")||"null");
 
-let savedProducts=
-JSON.parse(localStorage.getItem("shriProductsPro2")||"null");
 
-let products=savedProducts || seed.map((x,i)=>({
+let products=oldProducts||seed.map((x,i)=>({
 
-no:i+1,
 name:x[0],
 cat:x[1],
 unit:x[2],
-quantity:x[3],
 price:x[4],
+stock:Number(x[3])||0,
 emoji:x[5],
 popular:x[6]
 
@@ -808,59 +631,71 @@ popular:x[6]
 
 
 let cart=
-JSON.parse(localStorage.getItem("shriCartPro2")||"{}");
+JSON.parse(localStorage.getItem("shriCartPro")||"{}");
 
 let orders=
-JSON.parse(localStorage.getItem("shriOrdersPro2")||"[]");
+JSON.parse(localStorage.getItem("shriOrdersPro")||"[]");
 
 let offers=
-JSON.parse(localStorage.getItem("shriOffersPro2")||"[]");
-
+JSON.parse(localStorage.getItem("shriOffersPro")||"[]");
 
 let active="सभी";
 let newPopular=false;
 
 
-/* =========================
-   ELEMENTS
-========================= */
+const catsEl=
+document.getElementById("cats");
 
-const catsEl=document.getElementById("cats");
-const productsEl=document.getElementById("products");
-const search=document.getElementById("search");
-const count=document.getElementById("count");
-const stats=document.getElementById("stats");
-const inventory=document.getElementById("inventory");
-const ordersEl=document.getElementById("orders");
-const modal=document.getElementById("modal");
-const mb=document.getElementById("mb");
-const customer=document.getElementById("customer");
-const admin=document.getElementById("admin");
+const productsEl=
+document.getElementById("products");
+
+const search=
+document.getElementById("search");
+
+const count=
+document.getElementById("count");
+
+const stats=
+document.getElementById("stats");
+
+const inventory=
+document.getElementById("inventory");
+
+const ordersEl=
+document.getElementById("orders");
+
+const modal=
+document.getElementById("modal");
+
+const mb=
+document.getElementById("mb");
+
+const customer=
+document.getElementById("customer");
+
+const admin=
+document.getElementById("admin");
 
 
-/* =========================
-   SAVE
-========================= */
-
-function persist(){
+function save(){
 
 localStorage.setItem(
-"shriProductsPro2",
+"shriProductsPro",
 JSON.stringify(products)
 );
 
 localStorage.setItem(
-"shriCartPro2",
+"shriCartPro",
 JSON.stringify(cart)
 );
 
 localStorage.setItem(
-"shriOrdersPro2",
+"shriOrdersPro",
 JSON.stringify(orders)
 );
 
 localStorage.setItem(
-"shriOffersPro2",
+"shriOffersPro",
 JSON.stringify(offers)
 );
 
@@ -868,10 +703,6 @@ render();
 
 }
 
-
-/* =========================
-   SECURITY DISPLAY
-========================= */
 
 function esc(v){
 
@@ -889,20 +720,15 @@ m=>({
 }
 
 
-/* =========================
-   RENDER
-========================= */
-
 function render(){
-
-/* categories */
 
 let cats=[
 "सभी",
 ...new Set(products.map(p=>p.cat))
 ];
 
-catsEl.innerHTML=cats.map(c=>`
+catsEl.innerHTML=
+cats.map(c=>`
 
 <button
 class="tab ${c===active?"active":""}"
@@ -914,125 +740,86 @@ ${esc(c)}
 `).join("");
 
 
-/* search */
-
 let q=
 search.value.toLowerCase().trim();
 
 
-/* filter */
+let list=
+products.filter(p=>
 
-let list=products.filter(p=>{
+(active==="सभी"||p.cat===active)&&
 
-let categoryMatch=
-active==="सभी" || p.cat===active;
+(
+p.name.toLowerCase().includes(q)||
+p.cat.toLowerCase().includes(q)
+)
 
-let searchMatch=
-p.name.toLowerCase().includes(q) ||
-p.cat.toLowerCase().includes(q);
-
-return categoryMatch && searchMatch;
-
-});
+);
 
 
-/* table */
+productsEl.innerHTML=
+list.length
 
-if(!list.length){
+?
 
-productsEl.innerHTML=`
+list.map(p=>`
 
-<tr>
-<td colspan="7" class="empty">
-कोई सामान नहीं मिला।
-</td>
-</tr>
+<div class="card ${p.popular?"popular":""}">
 
-`;
+<div class="emoji">
+${esc(p.emoji)}
+</div>
 
-}else{
+${p.popular?
+'<div class="small">⭐ Popular</div>'
+:""}
 
-productsEl.innerHTML=list.map(p=>{
-
-let stockNumber=
-Number(p.quantity)||0;
-
-let stockClass=
-stockNumber<=0
-?"stock-out"
-:stockNumber<=5
-?"stock-low"
-:"stock-ok";
-
-let stockText=
-stockNumber<=0
-?"स्टॉक खत्म"
-:p.quantity;
-
-return `
-
-<tr class="${p.popular?"popular-row":""}">
-
-<td>
-${p.no}
-</td>
-
-<td>
-
-${p.popular?"⭐ ":""}
-
+<div class="name">
 ${esc(p.name)}
+</div>
 
-</td>
+<div class="muted">
+${esc(p.cat)} · ${esc(p.unit)}
+</div>
 
-<td>
-<span class="badge">
-${esc(p.cat)}
-</span>
-</td>
+<div class="price">
+₹${esc(p.price)}
+</div>
 
-<td>
-${esc(p.unit)}
-</td>
+<div class="muted">
+मात्रा: ${esc(p.stock)}
+</div>
 
-<td class="${stockClass}">
-${esc(stockText)}
-</td>
-
-<td class="price">
-₹ ${esc(p.price)}
-</td>
-
-<td>
+<br>
 
 <button
-class="cart-mini"
-${stockNumber<=0?"disabled":""}
+class="btn"
+style="width:100%"
+${p.stock<=0?"disabled":""}
 onclick='addCart(${JSON.stringify(p.name)})'
 >
 
-${stockNumber<=0?"खत्म":"🛒 जोड़ें"}
+${p.stock>0
+?"🛒 कार्ट में डालें"
+:"स्टॉक खत्म"}
 
 </button>
 
-</td>
+</div>
 
-</tr>
+`).join("")
 
-`;
+:
 
-}).join("");
+`<div class="empty">
+इस नाम का सामान नहीं मिला।
+</div>`;
 
-}
-
-
-/* offers */
 
 let activeOffers=
 offers.filter(o=>o.active);
 
 document.getElementById("offers").innerHTML=
-
 activeOffers.length
 
 ?
@@ -1048,27 +835,63 @@ activeOffers.map(o=>`
 :"";
 
 
-/* cart count */
+let pops=
+products.filter(
+p=>p.popular&&p.stock>0
+).slice(0,6);
+
+
+document.getElementById("popular").innerHTML=
+pops.length
+
+?
+
+`
+<div class="bar">
+<h2>⭐ Popular सामान</h2>
+</div>
+
+<div class="grid">
+
+${pops.map(p=>`
+
+<div class="card popular">
+
+<div class="emoji">
+${esc(p.emoji)}
+</div>
+
+<div class="name">
+${esc(p.name)}
+</div>
+
+<div class="price">
+₹${esc(p.price)}
+</div>
+
+<button
+class="btn"
+style="width:100%"
+onclick='addCart(${JSON.stringify(p.name)})'
+>
+🛒 कार्ट में डालें
+</button>
+
+</div>
+
+`).join("")}
+
+</div>
+`
+
+:"";
+
 
 count.textContent=
 Object.values(cart).reduce(
 (a,b)=>a+b,0
 );
 
-
-/* stats */
-
-let totalStock=
-products.reduce(
-(a,p)=>a+(Number(p.quantity)||0),
-0
-);
-
-let totalSales=
-orders.reduce(
-(a,o)=>a+(Number(o.total)||0),
-0
-);
 
 stats.innerHTML=`
 
@@ -1079,7 +902,7 @@ stats.innerHTML=`
 
 <div class="stat">
 कुल स्टॉक<br>
-<b>${totalStock}</b>
+<b>${products.reduce((a,p)=>a+p.stock,0)}</b>
 </div>
 
 <div class="stat">
@@ -1088,48 +911,40 @@ stats.innerHTML=`
 </div>
 
 <div class="stat">
-कुल बिक्री<br>
-<b>₹${totalSales}</b>
+बिक्री<br>
+<b>₹${orders.reduce((a,o)=>a+o.total,0)}</b>
 </div>
 
 `;
 
 
-/* inventory */
-
 inventory.innerHTML=
 products.map((p,i)=>`
 
-<div class="inventory-item">
+<div class="row">
 
-<div>
-<b>${p.no}. ${esc(p.name)}</b>
+<span>
+
+<b>${i+1}. ${esc(p.name)}</b>
+
 <br>
 
 <span class="small">
-${esc(p.cat)} · ${esc(p.unit)}
-${p.popular?" · ⭐ Popular":""}
+${esc(p.cat)}
+ · ${esc(p.unit)}
+ · मात्रा: ${p.stock}
+ · ₹${p.price}
 </span>
 
-</div>
+</span>
 
-<input
-id="qty-${i}"
-value="${esc(p.quantity)}"
-placeholder="मात्रा"
->
-
-<input
-id="price-${i}"
-value="${esc(p.price)}"
-placeholder="प्राइस"
->
+<span class="actions">
 
 <button
 class="btn"
-onclick="saveProduct(${i})"
+onclick="editProduct(${i})"
 >
-💾 सेव
+✏️ बदलें
 </button>
 
 <button
@@ -1139,14 +954,67 @@ onclick="togglePopular(${i})"
 ⭐ ${p.popular?"हटाएँ":"Popular"}
 </button>
 
+<button
+class="btn red"
+onclick="deleteProduct(${i})"
+>
+हटाएँ
+</button>
+
+</span>
+
 </div>
 
 `).join("");
 
 
-/* offers admin */
+ordersEl.innerHTML=
+orders.length
 
-document.getElementById("offerAdmin").innerHTML=
+?
+
+orders.slice().reverse().map(o=>`
+
+<div class="row">
+
+<span>
+
+<b>${esc(o.name)}</b>
+
+<br>
+
+${esc(o.address)}
+
+<br>
+
+${esc(o.items||"")}
+
+${o.note?
+"<br>📝 "+esc(o.note)
+:""}
+
+<br>
+
+<span class="small">
+${esc(o.date)}
+</span>
+
+</span>
+
+<b>
+₹${o.total}
+</b>
+
+</div>
+
+`).join("")
+
+:"अभी कोई ऑर्डर नहीं।";
+
+
+document.getElementById(
+"offerAdmin"
+).innerHTML=
 
 offers.length
 
@@ -1188,64 +1056,8 @@ onclick="deleteOffer(${i})"
 
 :"अभी कोई ऑफर नहीं।";
 
-
-/* order history */
-
-ordersEl.innerHTML=
-
-orders.length
-
-?
-
-orders
-.slice()
-.reverse()
-.map(o=>`
-
-<div class="row">
-
-<span>
-
-<b>${esc(o.name)}</b>
-
-<br>
-
-${esc(o.address)}
-
-<br>
-
-${esc(o.items||"")}
-
-${o.note
-?
-`<br>📝 ${esc(o.note)}`
-:""
 }
 
-<br>
-
-<span class="small">
-${esc(o.date)}
-</span>
-
-</span>
-
-<b>
-₹${o.total}
-</b>
-
-</div>
-
-`).join("")
-
-:"अभी कोई ऑर्डर नहीं है।";
-
-}
-
-
-/* =========================
-   CART
-========================= */
 
 function addCart(name){
 
@@ -1254,33 +1066,24 @@ products.find(
 x=>x.name===name
 );
 
-if(!p)return;
+if(!p||p.stock<=0)return;
 
-let stock=
-Number(p.quantity)||0;
-
-if(stock<=0){
-
-alert("यह सामान अभी स्टॉक में नहीं है।");
-
-return;
-
-}
-
-let current=
+let q=
 cart[name]||0;
 
-if(current>=stock){
+if(q>=p.stock){
 
-alert("इतना सामान उपलब्ध नहीं है।");
+alert(
+"इतना स्टॉक उपलब्ध नहीं है।"
+);
 
 return;
 
 }
 
-cart[name]=current+1;
+cart[name]=q+1;
 
-persist();
+save();
 
 }
 
@@ -1289,8 +1092,6 @@ function openCart(){
 
 let keys=
 Object.keys(cart);
-
-let total=0;
 
 if(!keys.length){
 
@@ -1303,6 +1104,7 @@ return;
 
 }
 
+let total=0;
 
 let html=
 keys.map(k=>{
@@ -1312,13 +1114,10 @@ products.find(
 x=>x.name===k
 );
 
-if(!p)return "";
-
 let q=
 cart[k];
 
-total+=
-(Number(p.price)||0)*q;
+total+=p.price*q;
 
 return `
 
@@ -1326,13 +1125,12 @@ return `
 
 <span>
 
-${esc(p.emoji)}
+${p.emoji}
 <b>${esc(p.name)}</b>
 
 <br>
 
-₹${esc(p.price)}
-× ${q}
+₹${p.price} × ${q}
 
 </span>
 
@@ -1404,6 +1202,7 @@ onclick="placeOrder(${total})"
 
 `;
 
+
 mb.innerHTML=html;
 
 modal.classList.add("show");
@@ -1413,28 +1212,18 @@ modal.classList.add("show");
 
 function minusCart(name){
 
-if(cart[name]){
-
 cart[name]--;
 
 if(cart[name]<=0){
-
-delete cart[name];
-
+delete cart[name]
 }
 
-persist();
-
-}
+save();
 
 openCart();
 
 }
 
-
-/* =========================
-   ORDER
-========================= */
 
 function placeOrder(total){
 
@@ -1463,22 +1252,17 @@ return;
 
 
 let items=
-Object.keys(cart)
-.map(k=>{
+Object.keys(cart).map(k=>{
 
 let p=
 products.find(
 x=>x.name===k
 );
 
-return p
-?
-`${p.name} × ${cart[k]}`
-:"";
+return p?
+`${p.name} × ${cart[k]}`:"";
 
-})
-.filter(Boolean)
-.join(", ");
+}).join(", ");
 
 
 orders.push({
@@ -1493,8 +1277,6 @@ date:new Date().toLocaleString("hi-IN")
 });
 
 
-/* stock कम */
-
 for(let k in cart){
 
 let p=
@@ -1504,15 +1286,10 @@ x=>x.name===k
 
 if(p){
 
-let oldStock=
-Number(p.quantity)||0;
-
-p.quantity=
-String(
+p.stock=
 Math.max(
 0,
-oldStock-cart[k]
-)
+p.stock-cart[k]
 );
 
 }
@@ -1521,7 +1298,6 @@ oldStock-cart[k]
 
 
 let text=
-
 `नमस्ते, श्री हरि किराना दुकान में ऑर्डर:%0A`+
 `नाम: ${encodeURIComponent(n)}%0A`+
 `पता: ${encodeURIComponent(a)}%0A`+
@@ -1532,7 +1308,7 @@ let text=
 
 cart={};
 
-persist();
+save();
 
 closeModal();
 
@@ -1544,20 +1320,12 @@ window.open(
 }
 
 
-/* =========================
-   MODAL
-========================= */
-
 function closeModal(){
 
 modal.classList.remove("show");
 
 }
 
-
-/* =========================
-   ADMIN
-========================= */
 
 function openAdmin(){
 
@@ -1573,15 +1341,9 @@ return;
 }
 
 customer.classList.add("hide");
-
 admin.classList.add("show");
 
 render();
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
 
 }
 
@@ -1589,159 +1351,48 @@ behavior:"smooth"
 function closeAdmin(){
 
 admin.classList.remove("show");
-
 customer.classList.remove("hide");
 
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
 }
 
 
-/* =========================
-   SAVE PRODUCT
-========================= */
+function editProduct(i){
 
-function saveProduct(i){
-
-let qty=
-document.getElementById(
-"qty-"+i
-).value.trim();
-
-let price=
-document.getElementById(
-"price-"+i
-).value.trim();
-
-
-if(qty===""){
-qty="0";
-}
-
-if(price===""){
-price="0";
-}
-
-
-products[i].quantity=qty;
-
-products[i].price=price;
-
-persist();
-
-alert(
-"✅ मात्रा और प्राइस सेव हो गए।"
-);
-
-}
-
-
-/* =========================
-   NEW PRODUCT
-========================= */
-
-function addProduct(){
+let p=products[i];
 
 let name=
-document.getElementById("pn")
-.value.trim();
+prompt("सामान का नाम",p.name);
 
-let cat=
-document.getElementById("pc")
-.value.trim()
-||"किराना";
+if(name===null)return;
 
-let unit=
-document.getElementById("pu")
-.value.trim()
-||"नग";
-
-let quantity=
-document.getElementById("pq")
-.value.trim()
-||"00";
 
 let price=
-document.getElementById("pp")
-.value.trim()
-||"00";
+prompt("कीमत ₹",p.price);
 
-let emoji=
-document.getElementById("pe")
-.value.trim()
-||"🛍️";
+if(price===null)return;
 
 
-if(!name){
+let stock=
+prompt("मात्रा / स्टॉक",p.stock);
 
-alert("प्रोडक्ट का नाम भरें");
-
-return;
-
-}
+if(stock===null)return;
 
 
-products.push({
+p.name=
+name.trim()||p.name;
 
-no:products.length+1,
-name:name,
-cat:cat,
-unit:unit,
-quantity:quantity,
-price:price,
-emoji:emoji,
-popular:newPopular
+p.price=
+Number(price);
 
-});
+p.stock=
+Math.max(0,Number(stock)||0);
 
 
-/* numbering */
-
-products.forEach(
-(p,i)=>p.no=i+1
-);
-
-
-document.getElementById("pn").value="";
-document.getElementById("pc").value="";
-document.getElementById("pu").value="";
-document.getElementById("pq").value="";
-document.getElementById("pp").value="";
-document.getElementById("pe").value="";
-
-newPopular=false;
-
-document.getElementById(
-"pPopular"
-).textContent="Popular नहीं";
-
-
-persist();
+save();
 
 alert(
-"✅ नया सामान जोड़ दिया गया।"
+"✅ सामान अपडेट हो गया।"
 );
-
-}
-
-
-/* =========================
-   POPULAR
-========================= */
-
-function toggleNewPopular(){
-
-newPopular=!newPopular;
-
-document.getElementById(
-"pPopular"
-).textContent=
-newPopular
-?"Popular हाँ ⭐"
-:"Popular नहीं";
 
 }
 
@@ -1751,40 +1402,108 @@ function togglePopular(i){
 products[i].popular=
 !products[i].popular;
 
-persist();
+save();
 
 }
 
-
-/* =========================
-   DELETE
-========================= */
 
 function deleteProduct(i){
 
 if(
-!confirm(
+confirm(
 "क्या यह सामान हटाना है?"
 )
-)return;
-
+){
 
 products.splice(i,1);
 
-products.forEach(
-(p,index)=>{
-p.no=index+1;
+save();
+
 }
+
+}
+
+
+function addProduct(){
+
+let n=
+document.getElementById("pn")
+.value.trim();
+
+let c=
+document.getElementById("pc")
+.value.trim()||"किराना";
+
+let p=
+Number(
+document.getElementById("pp").value
 );
 
-persist();
+let s=
+Number(
+document.getElementById("ps").value
+)||0;
+
+let e=
+document.getElementById("pe")
+.value.trim()||"🛍️";
+
+
+if(!n){
+
+alert(
+"सामान का नाम भरें।"
+);
+
+return;
 
 }
 
 
-/* =========================
-   OFFERS
-========================= */
+products.push({
+
+name:n,
+cat:c,
+price:p||0,
+stock:s,
+emoji:e,
+popular:newPopular
+
+});
+
+
+document.getElementById("pn").value="";
+document.getElementById("pc").value="";
+document.getElementById("pp").value="";
+document.getElementById("ps").value="";
+document.getElementById("pe").value="";
+
+newPopular=false;
+
+document.getElementById(
+"pPopular"
+).textContent="नहीं";
+
+save();
+
+alert(
+"✅ नया सामान जोड़ दिया गया।"
+);
+
+}
+
+
+function toggleNewPopular(){
+
+newPopular=!newPopular;
+
+document.getElementById(
+"pPopular"
+).textContent=
+newPopular?"हाँ ⭐":"नहीं";
+
+}
+
 
 function addOffer(){
 
@@ -1794,32 +1513,25 @@ document.getElementById("oname");
 let text=
 input.value.trim();
 
-
 if(!text){
 
-alert("ऑफर लिखें");
+alert(
+"ऑफर लिखें।"
+);
 
 return;
 
 }
 
-
 offers.push({
-
 text:text,
 active:true,
 date:new Date().toLocaleString("hi-IN")
-
 });
-
 
 input.value="";
 
-persist();
-
-alert(
-"🎁 ऑफर चालू हो गया।"
-);
+save();
 
 }
 
@@ -1829,7 +1541,7 @@ function toggleOffer(i){
 offers[i].active=
 !offers[i].active;
 
-persist();
+save();
 
 }
 
@@ -1838,7 +1550,7 @@ function deleteOffer(i){
 
 offers.splice(i,1);
 
-persist();
+save();
 
 }
 
@@ -1847,32 +1559,24 @@ function clearOffers(){
 
 if(
 confirm(
-"क्या सभी ऑफर हटाने हैं?"
+"सभी ऑफर हटाने हैं?"
 )
 ){
 
 offers=[];
 
-persist();
+save();
 
 }
 
 }
 
-
-/* =========================
-   SEARCH
-========================= */
 
 search.addEventListener(
 "input",
 render
 );
 
-
-/* =========================
-   START
-========================= */
 
 render();
 
