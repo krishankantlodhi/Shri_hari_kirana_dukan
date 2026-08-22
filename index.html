@@ -1,128 +1,672 @@
 <!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#137333">
+<title>श्री हरि किराना दुकान | खुरई</title>
 
-<html lang="hi">  
-<head>  
-<meta charset="utf-8">  
-<meta name="viewport" content="width=device-width,initial-scale=1">  
-<meta name="theme-color" content="#137333">  
-<title>श्री हरि किराना दुकान | खुरई</title>  
-<style>  
-*{box-sizing:border-box}body{margin:0;font-family:system-ui,sans-serif;background:#fffaf0;color:#182019}  
-header{background:#137333;color:#fff;padding:13px 15px;position:sticky;top:0;z-index:10}.head{max-width:1150px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:10px}.brand{font-size:20px;font-weight:800}  
-.wrap{max-width:1150px;margin:auto;padding:16px}.hero{background:linear-gradient(135deg,#137333,#2e9e55);color:#fff;border-radius:20px;padding:25px;margin-bottom:16px}.hero h1{margin:0 0 8px;font-size:30px}  
-.search{display:flex;gap:8px;margin-top:15px}.search input,.input{width:100%;padding:12px;border:1px solid #d5ddd7;border-radius:10px;font-size:15px}.search input{border:0}  
-.btn{border:0;border-radius:10px;padding:11px 15px;font-weight:800;cursor:pointer;background:#137333;color:#fff}.white{background:#fff;color:#137333}.red{background:#c62828}.orange{background:#f6b51b;color:#111}.blue{background:#1976d2}.gold{background:#f6b51b;color:#111}  
-.tabs{display:flex;gap:8px;overflow:auto;padding:2px 0 12px}.tab{border:1px solid #d7ded8;background:#fff;border-radius:99px;padding:9px 14px;white-space:nowrap}.active{background:#137333!important;color:#fff}  
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px}.card,.panel{background:#fff;border-radius:16px;padding:14px;box-shadow:0 2px 8px #0001}.emoji{text-align:center;font-size:42px;background:#eef6ef;border-radius:12px;padding:10px}.name{font-weight:800;margin-top:8px}.price{font-size:18px;font-weight:900;color:#137333;margin:5px 0}.muted{font-size:13px;color:#69736c}  
-.bar{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:15px 0 10px}.actions{display:flex;gap:8px;flex-wrap:wrap}.cart{position:fixed;right:15px;bottom:15px;background:#f6b51b;color:#111;border:0;border-radius:99px;padding:14px 18px;font-weight:900;z-index:20}  
-.admin{display:none}.admin.show{display:block}.customer.hide{display:none}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}.stat{padding:15px;background:#f0f6f1;border-radius:12px}.row{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:11px 0;border-bottom:1px solid #eee}  
-.modal{display:none;position:fixed;inset:0;background:#0008;z-index:30;align-items:flex-end;justify-content:center}.modal.show{display:flex}.sheet{background:#fff;width:min(650px,100%);max-height:92vh;overflow:auto;border-radius:22px 22px 0 0;padding:18px}.info{background:#eef6ef;border-radius:16px;padding:16px;margin:16px 0}.info h3{margin-top:0}.small{font-size:12px;color:#69736c}.empty{text-align:center;padding:30px;color:#69736c}.offer{background:#fff4c7;border:1px solid #efd56b;border-radius:16px;padding:15px;margin:12px 0}.popular{border:2px solid #f6b51b}  
-footer{text-align:center;color:#69736c;padding:30px 10px}@media(min-width:700px){.modal{align-items:center}.sheet{border-radius:20px}}  
-</style>  
-</head>  
-<body>  
-<header><div class="head"><div class="brand">🛒 श्री हरि किराना दुकान</div><div>📞 9329890431 · खुरई</div></div></header>  <main class="wrap">  
-<section id="customer" class="customer">  
-<div class="hero"><h1>घर का सामान, अब आसानी से</h1><div>खुरई में आपकी अपनी किराना दुकान</div>  
-<div class="search"><input id="search" placeholder="सामान खोजें..." autocomplete="off"><button class="btn white" onclick="openCart()">कार्ट 🛒</button></div></div>  <div class="actions">  
-<a class="btn" href="tel:9329890431">📞 Call Now</a>  
-<a class="btn" href="https://wa.me/919329890431" target="_blank" rel="noopener">💬 WhatsApp</a>  
-<a class="btn blue" href="https://www.google.com/maps/search/?api=1&query=Shastri+Ward+Plot+Gali+No+2+Khurai+Sagar+470117" target="_blank" rel="noopener">📍 रास्ता देखें</a>  
-</div>  <div class="info"><h3>🏪 श्री हरि किराना दुकान</h3><div>📍 Shastri Ward, Plot Gali No. 2, Khurai, Sagar, 470117</div><div>📞 9329890431</div></div>  
-<div id="offers"></div><div id="popular"></div><div id="cats" class="tabs"></div>  
-<div class="bar"><h2>सामान</h2><button class="btn" onclick="openAdmin()">🔐 एडमिन</button></div>  
-<div id="products" class="grid"></div>  
-</section>  <section id="admin" class="admin">  
-<div class="bar"><h2>🔐 एडमिन पैनल</h2><button class="btn" onclick="closeAdmin()">ग्राहक साइट</button></div>  
-<div class="panel"><h3>📊 दुकान डैशबोर्ड</h3><div id="stats" class="stats"></div></div>  <div class="panel"><h3>🎁 ऑफर प्रबंधन</h3>  
-<input id="oname" class="input" placeholder="ऑफर जैसे: आज सभी बिस्कुट पर 10% OFF"><br><br>  
-<div class="actions"><button class="btn gold" onclick="addOffer()">🎁 ऑफर चालू करें</button><button class="btn red" onclick="clearOffers()">🗑️ सभी ऑफर हटाएँ</button></div>  
-<div id="offerAdmin"></div></div>  <div class="panel"><h3>➕ नया सामान जोड़ें</h3>  
-<input id="pn" class="input" placeholder="सामान का नाम"><br><br><input id="pc" class="input" placeholder="श्रेणी"><br><br>  
-<input id="pp" class="input" type="number" placeholder="कीमत ₹"><br><br><input id="ps" class="input" type="number" placeholder="स्टॉक"><br><br>  
-<input id="pe" class="input" placeholder="इमोजी जैसे 🍚"><br><br>  
-<label class="small">⭐ Popular सामान</label><br><br><button id="pPopular" class="btn orange" onclick="toggleNewPopular()">नहीं</button><br><br>  
-<button class="btn" onclick="addProduct()">सेव करें</button></div>  <div class="panel"><h3>✏️ सामान और स्टॉक प्रबंधन</h3><div id="inventory"></div></div>  
-<div class="panel"><h3>📋 ऑर्डर इतिहास</h3><div id="orders"></div></div>  
-</section>  
-</main>  <button class="cart" onclick="openCart()">🛒 कार्ट (<span id="count">0</span>)</button>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,sans-serif;background:#fffaf0;color:#182019}
+header{background:#137333;color:#fff;padding:14px 16px;position:sticky;top:0;z-index:10}
+.head{max-width:1150px;margin:auto;display:flex;justify-content:space-between;gap:10px;align-items:center}
+.brand{font-size:20px;font-weight:800}
+.wrap{max-width:1150px;margin:auto;padding:16px}
+.hero{background:linear-gradient(135deg,#137333,#2e9e55);color:#fff;border-radius:20px;padding:24px;margin-bottom:16px}
+.hero h1{margin:0 0 8px;font-size:28px}
+.search{display:flex;gap:8px;margin-top:15px}
+.search input{width:100%;padding:13px;border:0;border-radius:11px;font-size:16px}
+.btn{border:0;border-radius:10px;padding:11px 15px;font-weight:800;cursor:pointer;background:#137333;color:#fff}
+.white{background:#fff;color:#137333}
+.orange{background:#f6b51b;color:#111}
+.red{background:#c62828}
+.blue{background:#1976d2}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+.actions a{text-decoration:none}
+.info,.panel{background:#fff;border-radius:16px;padding:16px;margin:14px 0;box-shadow:0 2px 8px #0001}
+.tabs{display:flex;gap:8px;overflow:auto;padding:4px 0 12px}
+.tab{border:1px solid #d7ded8;background:#fff;border-radius:99px;padding:9px 14px;white-space:nowrap;cursor:pointer}
+.active{background:#137333!important;color:#fff}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:14px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:12px}
+.card{background:#fff;border-radius:16px;padding:13px;box-shadow:0 2px 8px #0001}
+.emoji{text-align:center;font-size:42px;background:#eef6ef;border-radius:12px;padding:10px}
+.name{font-weight:800;margin-top:8px}
+.muted{font-size:13px;color:#69736c}
+.price{font-size:19px;font-weight:900;color:#137333;margin:5px 0}
+.popular{border:2px solid #f6b51b}
+.offer{background:#fff4c7;border:1px solid #efd56b;border-radius:15px;padding:14px;margin:12px 0}
+.cart{position:fixed;right:15px;bottom:15px;background:#f6b51b;color:#111;border:0;border-radius:99px;padding:14px 18px;font-weight:900;z-index:20;cursor:pointer}
+.admin{display:none}
+.admin.show{display:block}
+.customer.hide{display:none}
+.input{width:100%;padding:12px;border:1px solid #d5ddd7;border-radius:10px;font-size:15px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.stat{background:#f0f6f1;padding:14px;border-radius:12px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:11px 0;border-bottom:1px solid #eee}
+.modal{display:none;position:fixed;inset:0;background:#0008;z-index:30;align-items:center;justify-content:center}
+.modal.show{display:flex}
+.sheet{background:#fff;width:min(650px,94%);max-height:92vh;overflow:auto;border-radius:20px;padding:18px}
+.empty{text-align:center;padding:30px;color:#69736c}
+footer{text-align:center;color:#69736c;padding:30px 10px}
 
-<footer>© 2026 श्री हरि किराना दुकान · खुरई · 9329890431</footer>  <div id="modal" class="modal"><div class="sheet"><div class="bar"><h2 id="mt">कार्ट</h2><button class="btn" onclick="closeModal()">✕</button></div><div id="mb"></div></div></div>  <script>  
-const ADMIN_PIN="159632";  
-const seed=[  
-["आशीर्वाद आटा 5 किलो","आटा और चावल",280,20,"🌾",true],["इंडिया गेट चावल 5 किलो","आटा और चावल",420,15,"🍚",true],  
-["तूर दाल 1 किलो","दाल",165,30,"🫘",true],["फॉर्च्यून तेल 1 लीटर","तेल",145,25,"🫗",false],  
-["टाटा नमक 1 किलो","किराना",28,50,"🧂",false],["चीनी 1 किलो","किराना",48,40,"🍬",false],  
-["मैगी","नाश्ता",14,60,"🍜",true],["पारले-जी बिस्कुट","बिस्कुट",10,80,"🍪",true],  
-["चाय 250 ग्राम","पेय पदार्थ",110,25,"☕",false],["नहाने का साबुन","पर्सनल केयर",35,35,"🧼",false]  
-];  
-let products=JSON.parse(localStorage.getItem("shriProductsPro")||"null")||seed.map(x=>({name:x[0],cat:x[1],price:x[2],stock:x[3],emoji:x[4],popular:x[5]}));  
-products=products.map(p=>({...p,popular:!!p.popular}));  
-let cart=JSON.parse(localStorage.getItem("shriCartPro")||"{}");  
-let orders=JSON.parse(localStorage.getItem("shriOrdersPro")||"[]");  
-let offers=JSON.parse(localStorage.getItem("shriOffersPro")||"[]");  
-let active="सभी",newPopular=false;  
-  
-const catsEl=document.getElementById("cats"),productsEl=document.getElementById("products"),search=document.getElementById("search");  
-const count=document.getElementById("count"),stats=document.getElementById("stats"),inventory=document.getElementById("inventory"),ordersEl=document.getElementById("orders");  
-const modal=document.getElementById("modal"),mb=document.getElementById("mb"),customer=document.getElementById("customer"),admin=document.getElementById("admin");  
-  
-function persist(){localStorage.setItem("shriProductsPro",JSON.stringify(products));localStorage.setItem("shriCartPro",JSON.stringify(cart));localStorage.setItem("shriOrdersPro",JSON.stringify(orders));localStorage.setItem("shriOffersPro",JSON.stringify(offers));render()}  
-function esc(v){return String(v).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}  
-  
-function render(){  
-let cats=["सभी",...new Set(products.map(p=>p.cat))];  
-catsEl.innerHTML=cats.map(c=>`<button class="tab ${c===active?"active":""}" onclick='active=${JSON.stringify(c)};render()'>${esc(c)}</button>`).join("");  
-let q=search.value.toLowerCase().trim();  
-let list=products.filter(p=>(active==="सभी"||p.cat===active)&&p.name.toLowerCase().includes(q));  
-productsEl.innerHTML=list.length?list.map(p=>`<div class="card ${p.popular?"popular":""}">  
-<div class="emoji">${esc(p.emoji)}</div>${p.popular?'<div class="small">⭐ Popular</div>':''}  
-<div class="name">${esc(p.name)}</div><div class="muted">${esc(p.cat)} · स्टॉक ${p.stock}</div><div class="price">₹${p.price}</div>  
-<button class="btn" style="width:100%" ${p.stock?"":"disabled"} onclick='addCart(${JSON.stringify(p.name)})'>${p.stock?"कार्ट में डालें":"स्टॉक खत्म"}</button></div>`).join(""):`<div class="empty">इस नाम का सामान नहीं मिला।</div>`;  
-  
-let os=offers.filter(o=>o.active);  
-document.getElementById("offers").innerHTML=os.length?os.map(o=>`<div class="offer">🎁 <b>${esc(o.text)}</b></div>`).join(""):"";  
-let pops=products.filter(p=>p.popular&&p.stock).slice(0,6);  
-document.getElementById("popular").innerHTML=pops.length?`<div class="bar"><h2>⭐ Popular सामान</h2></div><div class="grid">${pops.map(p=>`<div class="card popular"><div class="emoji">${esc(p.emoji)}</div><div class="name">${esc(p.name)}</div><div class="price">₹${p.price}</div><button class="btn" style="width:100%" onclick='addCart(${JSON.stringify(p.name)})'>कार्ट में डालें</button></div>`).join("")}</div>`:"";  
-  
-count.textContent=Object.values(cart).reduce((a,b)=>a+b,0);  
-stats.innerHTML=`<div class="stat">कुल सामान<br><b>${products.length}</b></div><div class="stat">कुल स्टॉक<br><b>${products.reduce((a,p)=>a+p.stock,0)}</b></div><div class="stat">कुल ऑर्डर<br><b>${orders.length}</b></div><div class="stat">बिक्री<br><b>₹${orders.reduce((a,o)=>a+o.total,0)}</b></div>`;  
-ordersEl.innerHTML=orders.length?orders.slice().reverse().map(o=>`<div class="row"><span><b>${esc(o.name)}</b><br>${esc(o.address)}<br>${esc(o.items||"")}${o.note?"<br>📝 "+esc(o.note):""}<br><span class="muted">${esc(o.date)}</span></span><b>₹${o.total}</b></div>`).join(""):"अभी कोई ऑर्डर नहीं।";  
-inventory.innerHTML=products.length?products.map((p,i)=>`<div class="row"><span><b>${esc(p.name)}</b>${p.popular?" ⭐":""}<br>₹${p.price} · स्टॉक ${p.stock}</span><span class="actions"><button class="btn" onclick="stock(${i},-1)">−</button><button class="btn" onclick="stock(${i},1)">+</button><button class="btn orange" onclick="editProduct(${i})">✏️ बदलें</button><button class="btn blue" onclick="togglePopular(${i})">⭐ ${p.popular?"हटाएँ":"Popular"}</button><button class="btn red" onclick="del(${i})">हटाएँ</button></span></div>`).join(""):"अभी कोई सामान नहीं है।";  
-document.getElementById("offerAdmin").innerHTML=offers.length?offers.map((o,i)=>`<div class="row"><span>🎁 ${esc(o.text)}<br><span class="muted">${o.active?"चालू":"बंद"}</span></span><span class="actions"><button class="btn" onclick="toggleOffer(${i})">${o.active?"बंद करें":"चालू करें"}</button><button class="btn red" onclick="deleteOffer(${i})">हटाएँ</button></span></div>`).join(""):"अभी कोई ऑफर नहीं।";  
-}  
-  
-function addCart(n){let p=products.find(x=>x.name===n);if(p&&p.stock){if((cart[n]||0)>=p.stock){alert("इतना स्टॉक उपलब्ध नहीं है");return}cart[n]=(cart[n]||0)+1;persist()}}  
-function openCart(){  
-let keys=Object.keys(cart),total=0;  
-let b=keys.length?keys.map(k=>{let p=products.find(x=>x.name===k);if(!p)return "";let q=cart[k];total+=p.price*q;return `<div class="row"><span>${p.emoji} <b>${esc(p.name)}</b><br>₹${p.price} × ${q}</span><span><button class="btn" onclick='cart[${JSON.stringify(k)}]--;if(cart[${JSON.stringify(k)}]<=0)delete cart[${JSON.stringify(k)}];persist();openCart()'>−</button> ${q} <button class="btn" onclick='addCart(${JSON.stringify(k)});openCart()'>+</button></span></div>`}).join(""):"<p>कार्ट खाली है।</p>";  
-if(keys.length)b+=`<h3>कुल: ₹${total}</h3><input id="cn" class="input" placeholder="आपका नाम"><br><br><input id="ca" class="input" placeholder="डिलीवरी पता"><br><br><textarea id="cnote" class="input" style="min-height:90px" placeholder="📝 कोई Note / विशेष निर्देश"></textarea><br><br><button class="btn" style="width:100%" onclick="placeOrder(${total})">📱 WhatsApp पर ऑर्डर करें</button>`;  mb.innerHTML=b;modal.classList.add("show")
+@media(max-width:600px){
+.head{flex-direction:column;align-items:flex-start}
+.search{flex-direction:column}
+.grid{grid-template-columns:repeat(2,1fr);gap:9px}
+.card{padding:10px}
+.emoji{font-size:32px}
 }
-function placeOrder(total){
-let n=document.getElementById("cn").value.trim(),a=document.getElementById("ca").value.trim(),note=document.getElementById("cnote").value.trim();
-if(!n||!a){alert("कृपया नाम और पता भरें");return}
-let items=Object.keys(cart).map(k=>{let p=products.find(x=>x.name===k);return p?${p.name} × ${cart[k]}:""}).filter(Boolean).join(", ");
-orders.push({name:n,address:a,note,total,items,date:new Date().toLocaleString("hi-IN")});
-for(let k in cart){let p=products.find(x=>x.name===k);if(p)p.stock=Math.max(0,p.stock-cart[k])}
-let text=नमस्ते, श्री हरि किराना दुकान में ऑर्डर:%0Aनाम: ${encodeURIComponent(n)}%0Aपता: ${encodeURIComponent(a)}%0Aसामान: ${encodeURIComponent(items)}%0Aकुल: ₹${total}%0ANote: ${encodeURIComponent(note||"कोई Note नहीं")};
-cart={};persist();closeModal();window.open("https://wa.me/919329890431?text="+text,"_blank")
-}
-function closeModal(){modal.classList.remove("show")}
-function openAdmin(){let pin=prompt("Admin PIN डालें");if(pin!==ADMIN_PIN){alert("गलत PIN");return}customer.classList.add("hide");admin.classList.add("show");render()}
-function closeAdmin(){admin.classList.remove("show");customer.classList.remove("hide")}
-function addProduct(){let n=pn.value.trim(),c=pc.value.trim()||"किराना",p=Number(pp.value),s=Math.max(0,Number(ps.value)||0),e=pe.value.trim()||"🛍️";if(!n||!p){alert("नाम और कीमत भरें");return}products.push({name:n,cat:c,price:p,stock:s,emoji:e,popular:newPopular});pn.value=pc.value=pp.value=ps.value=pe.value="";newPopular=false;pPopular.textContent="नहीं";persist();alert("सामान जोड़ दिया गया")}
-function toggleNewPopular(){newPopular=!newPopular;pPopular.textContent=newPopular?"हाँ ⭐":"नहीं"}
-function editProduct(i){let p=products[i],name=prompt("सामान का नाम",p.name);if(name===null)return;let price=prompt("कीमत ₹",p.price);if(price===null)return;let stock=prompt("स्टॉक",p.stock);if(stock===null)return;let cat=prompt("श्रेणी",p.cat);if(cat===null)return;p.name=name.trim()||p.name;p.price=Number(price)||p.price;p.stock=Math.max(0,Number(stock)||0);p.cat=cat.trim()||p.cat;persist();alert("सामान अपडेट हो गया")}
-function stock(i,n){products[i].stock=Math.max(0,products[i].stock+n);persist()}
-function togglePopular(i){products[i].popular=!products[i].popular;persist()}
-function del(i){if(confirm("क्या यह सामान हटाना है?")){products.splice(i,1);persist()}}
-function addOffer(){let t=oname.value.trim();if(!t){alert("ऑफर लिखें");return}offers.push({text:t,active:true,date:new Date().toLocaleString("hi-IN")});oname.value="";persist()}
-function toggleOffer(i){offers[i].active=!offers[i].active;persist()}
-function deleteOffer(i){offers.splice(i,1);persist()}
-function clearOffers(){if(confirm("सभी ऑफर हटाएँ?")){offers=[];persist()}}
+</style>
+</head>
 
-search.addEventListener("input",render);render();
+<body>
+
+<header>
+<div class="head">
+<div class="brand">🛒 श्री हरि किराना दुकान</div>
+<div>📞 9329890431 · खुरई</div>
+</div>
+</header>
+
+<main class="wrap">
+
+<section id="customer" class="customer">
+
+<div class="hero">
+<h1>घर का सामान, अब आसानी से</h1>
+<div>खुरई में आपकी अपनी किराना दुकान</div>
+
+<div class="search">
+<input id="search" placeholder="सामान खोजें...">
+<button class="btn white" onclick="openCart()">कार्ट 🛒</button>
+</div>
+</div>
+
+<div class="actions">
+<a class="btn" href="tel:9329890431">📞 Call Now</a>
+<a class="btn" href="https://wa.me/919329890431" target="_blank">💬 WhatsApp</a>
+<a class="btn blue" href="https://www.google.com/maps/search/?api=1&query=Shastri+Ward+Plot+Gali+No+2+Khurai+Sagar+470117" target="_blank">📍 रास्ता देखें</a>
+</div>
+
+<div class="info">
+<b>🏪 श्री हरि किराना दुकान</b><br>
+📍 Shastri Ward, Plot Gali No. 2, Khurai, Sagar, 470117<br>
+📞 9329890431
+</div>
+
+<div id="offers"></div>
+
+<div id="cats" class="tabs"></div>
+
+<div class="bar">
+<h2>सामान</h2>
+<button class="btn" onclick="openAdmin()">🔐 एडमिन</button>
+</div>
+
+<div id="products" class="grid"></div>
+
+</section>
+
+
+<section id="admin" class="admin">
+
+<div class="bar">
+<h2>🔐 एडमिन पैनल</h2>
+<button class="btn" onclick="closeAdmin()">ग्राहक साइट</button>
+</div>
+
+<div class="panel">
+<h3>📊 डैशबोर्ड</h3>
+<div id="stats" class="stats"></div>
+</div>
+
+<div class="panel">
+<h3>🛍️ 47 सामान</h3>
+<p class="muted">पुराना data हटाकर 47 सामान फिर से लोड करें।</p>
+<button class="btn orange" onclick="reset47()">🔄 47 सामान फिर से लोड करें</button>
+</div>
+
+<div class="panel">
+<h3>🎁 ऑफर</h3>
+<input id="offerText" class="input" placeholder="जैसे: आज सभी बिस्कुट पर 10% OFF">
+<br><br>
+<button class="btn orange" onclick="addOffer()">🎁 ऑफर चालू करें</button>
+<div id="offerAdmin"></div>
+</div>
+
+<div class="panel">
+<h3>➕ नया सामान</h3>
+
+<input id="pn" class="input" placeholder="नाम">
+<br><br>
+
+<input id="pc" class="input" placeholder="कैटेगरी">
+<br><br>
+
+<input id="pu" class="input" placeholder="यूनिट">
+<br><br>
+
+<input id="pq" class="input" type="number" placeholder="मात्रा">
+<br><br>
+
+<input id="pp" class="input" type="number" placeholder="प्राइस ₹">
+<br><br>
+
+<button class="btn" onclick="addProduct()">💾 सेव करें</button>
+</div>
+
+<div class="panel">
+<h3>✏️ सामान प्रबंधन</h3>
+<div id="inventory"></div>
+</div>
+
+<div class="panel">
+<h3>📋 ऑर्डर इतिहास</h3>
+<div id="orders"></div>
+</div>
+
+</section>
+
+</main>
+
+<button class="cart" onclick="openCart()">
+🛒 कार्ट (<span id="count">0</span>)
+</button>
+
+<footer>
+© 2026 श्री हरि किराना दुकान · खुरई · 9329890431
+</footer>
+
+<div id="modal" class="modal">
+<div class="sheet">
+
+<div class="bar">
+<h2>🛒 कार्ट</h2>
+<button class="btn" onclick="closeModal()">✕</button>
+</div>
+
+<div id="mb"></div>
+
+</div>
+</div>
+
+<script>
+
+const PIN="159632";
+
+const seed=[
+["चावल","अनाज","किलो"],["आटा","अनाज","किलो"],
+["मैदा","अनाज","किलो"],["बेसन","अनाज","किलो"],
+["सूजी","अनाज","किलो"],["तुअर दाल","दाल","किलो"],
+["मूंग दाल","दाल","किलो"],["मसूर दाल","दाल","किलो"],
+["चना दाल","दाल","किलो"],["उड़द दाल","दाल","किलो"],
+["राजमा","दाल","किलो"],["सोयाबीन तेल","तेल","लीटर"],
+["सरसों तेल","तेल","लीटर"],["घी","तेल/घी","किलो"],
+["चीनी","किराना","किलो"],["गुड़","किराना","किलो"],
+["नमक","मसाला","किलो"],["हल्दी","मसाला","किलो"],
+["लाल मिर्च पाउडर","मसाला","किलो"],["धनिया पाउडर","मसाला","किलो"],
+["गरम मसाला","मसाला","किलो"],["जीरा","मसाला","किलो"],
+["राई","मसाला","किलो"],["अजवाइन","मसाला","किलो"],
+["हींग","मसाला","पैकेट"],["काली मिर्च","मसाला","किलो"],
+["तेजपत्ता","मसाला","किलो"],["दालचीनी","मसाला","किलो"],
+["लौंग","मसाला","किलो"],["इलायची","मसाला","किलो"],
+["काजू","ड्राय फ्रूट","किलो"],["बादाम","ड्राय फ्रूट","किलो"],
+["किशमिश","ड्राय फ्रूट","किलो"],["नारियल","ड्राय फ्रूट","किलो"],
+["टमाटर सॉस","सॉस","लीटर"],["चिली सॉस","सॉस","लीटर"],
+["सिरका","अन्य","लीटर"],["कॉर्नफ्लोर","अन्य","किलो"],
+["पापड़","स्नैक्स","किलो"],["अचार","अचार","किलो"],
+["चाय पत्ती","पेय पदार्थ","किलो"],["कॉफी","पेय पदार्थ","किलो"],
+["डिस्पोजेबल प्लेट","डिस्पोजेबल","नग"],
+["डिस्पोजेबल कटोरी","डिस्पोजेबल","नग"],
+["डिस्पोजेबल ग्लास","डिस्पोजेबल","नग"],
+["डिस्पोजेबल चम्मच","डिस्पोजेबल","नग"],
+["टिश्यू पेपर","डिस्पोजेबल","पैकेट"]
+];
+
+const icons=[
+"🍚","🌾","🌾","🟡","🌾","🫘","🫘","🫘","🫘","🫘","🫘",
+"🫗","🫗","🧈","🍬","🍯","🧂","🟡","🌶️","🌿","🌶️","🌿",
+"🌿","🌿","🟤","⚫","🍃","🪵","🌿","🌿","🥜","🥜","🍇","🥥",
+"🍅","🌶️","🍶","🌾","🥨","🥒","☕","☕","🍽️","🥣","🥛","🥄","🧻"
+];
+
+function freshProducts(){
+return seed.map((x,i)=>({
+id:i+1,
+name:x[0],
+cat:x[1],
+unit:x[2],
+qty:0,
+price:0,
+emoji:icons[i],
+popular:i<2
+}));
+}
+
+/* हमेशा 47 सामान से शुरू होगा */
+let products=freshProducts();
+
+let cart=JSON.parse(localStorage.getItem("shriCartV2")||"{}");
+let orders=JSON.parse(localStorage.getItem("shriOrdersV2")||"[]");
+let offers=JSON.parse(localStorage.getItem("shriOffersV2")||"[]");
+let active="सभी";
+
+function save(){
+localStorage.setItem("shriProductsV2",JSON.stringify(products));
+localStorage.setItem("shriCartV2",JSON.stringify(cart));
+localStorage.setItem("shriOrdersV2",JSON.stringify(orders));
+localStorage.setItem("shriOffersV2",JSON.stringify(offers));
+render();
+}
+
+function esc(s){
+return String(s).replace(/[&<>"']/g,m=>({
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#039;"
+}[m]));
+}
+
+function render(){
+
+const q=document.getElementById("search").value.trim().toLowerCase();
+
+const cats=[
+"सभी",
+...new Set(products.map(p=>p.cat))
+];
+
+document.getElementById("cats").innerHTML=
+cats.map(c=>`
+<button class="tab ${c===active?"active":""}"
+onclick='active=${JSON.stringify(c)};render()'>
+${esc(c)}
+</button>
+`).join("");
+
+const list=products.filter(p=>
+(active==="सभी"||p.cat===active)&&
+(!q||p.name.toLowerCase().includes(q)||p.cat.toLowerCase().includes(q))
+);
+
+document.getElementById("products").innerHTML=
+list.map(p=>`
+<div class="card ${p.popular?"popular":""}">
+
+<div class="emoji">${p.emoji}</div>
+
+<div class="name">${esc(p.name)}</div>
+
+<div class="muted">
+${esc(p.cat)} · ${esc(p.unit)}
+</div>
+
+<div class="price">₹${p.price}</div>
+
+<div class="muted">
+मात्रा: ${p.qty}
+</div>
+
+<br>
+
+<button class="btn" style="width:100%"
+onclick='addCart(${p.id})'>
+🛒 कार्ट में डालें
+</button>
+
+</div>
+`).join("");
+
+document.getElementById("offers").innerHTML=
+offers.filter(o=>o.active)
+.map(o=>`<div class="offer">🎁 <b>${esc(o.text)}</b></div>`)
+.join("");
+
+document.getElementById("count").textContent=
+Object.values(cart).reduce((a,b)=>a+b,0);
+
+document.getElementById("stats").innerHTML=`
+<div class="stat">कुल सामान<br><b>${products.length}</b></div>
+<div class="stat">कुल मात्रा<br><b>${products.reduce((a,p)=>a+p.qty,0)}</b></div>
+<div class="stat">कुल ऑर्डर<br><b>${orders.length}</b></div>
+<div class="stat">बिक्री<br><b>₹${orders.reduce((a,o)=>a+o.total,0)}</b></div>
+`;
+
+document.getElementById("inventory").innerHTML=
+products.map((p,i)=>`
+<div class="row">
+
+<span>
+<b>${i+1}. ${esc(p.name)}</b><br>
+<span class="muted">
+${esc(p.cat)} · ${esc(p.unit)}
+· मात्रा ${p.qty} · ₹${p.price}
+</span>
+</span>
+
+<span class="actions">
+<button class="btn" onclick="edit(${i})">✏️</button>
+<button class="btn orange" onclick="popular(${i})">⭐</button>
+<button class="btn red" onclick="del(${i})">हटाएँ</button>
+</span>
+
+</div>
+`).join("");
+
+document.getElementById("orders").innerHTML=
+orders.length
+?orders.slice().reverse().map(o=>`
+<div class="row">
+<span>
+<b>${esc(o.name)}</b><br>
+${esc(o.address)}<br>
+${esc(o.items)}<br>
+${o.note?"📝 "+esc(o.note):""}
+</span>
+<b>₹${o.total}</b>
+</div>
+`).join("")
+:"अभी कोई ऑर्डर नहीं।";
+
+document.getElementById("offerAdmin").innerHTML=
+offers.map((o,i)=>`
+<div class="row">
+<span>🎁 ${esc(o.text)}</span>
+<span>
+<button class="btn" onclick="toggleOffer(${i})">
+${o.active?"बंद":"चालू"}
+</button>
+<button class="btn red"
+onclick="offers.splice(${i},1);save()">
+हटाएँ
+</button>
+</span>
+</div>
+`).join("");
+
+}
+
+function reset47(){
+
+if(confirm("47 सामान फिर से लोड करें?")){
+
+products=freshProducts();
+
+localStorage.removeItem("shriProductsPro");
+
+save();
+
+alert("✅ 47 सामान लोड हो गए!");
+
+}
+
+}
+
+function addCart(id){
+
+const p=products.find(x=>x.id===id);
+
+if(!p)return;
+
+cart[id]=(cart[id]||0)+1;
+
+save();
+
+}
+
+function openCart(){
+
+let ids=Object.keys(cart);
+let total=0;
+
+if(!ids.length){
+
+document.getElementById("mb").innerHTML=
+"<div class='empty'>🛒 कार्ट खाली है।</div>";
+
+document.getElementById("modal").classList.add("show");
+
+return;
+
+}
+
+let html=ids.map(id=>{
+
+let p=products.find(x=>x.id==id);
+let q=cart[id];
+
+total+=p.price*q;
+
+return `
+<div class="row">
+
+<span>
+${p.emoji} <b>${esc(p.name)}</b><br>
+₹${p.price} × ${q}
+</span>
+
+<span>
+<button class="btn"
+onclick="cart[${id}]--;if(cart[${id}]<=0)delete cart[${id}];save();openCart()">
+−
+</button>
+
+${q}
+
+<button class="btn"
+onclick="addCart(${id});openCart()">
++
+</button>
+</span>
+
+</div>
+`;
+
+}).join("");
+
+html+=`
+<h3>कुल: ₹${total}</h3>
+
+<input id="cn" class="input" placeholder="आपका नाम">
+<br><br>
+
+<input id="ca" class="input" placeholder="डिलीवरी पता">
+<br><br>
+
+<textarea id="note" class="input"
+style="min-height:80px"
+placeholder="📝 Note"></textarea>
+
+<br><br>
+
+<button class="btn"
+style="width:100%"
+onclick="order(${total})">
+📱 WhatsApp पर ऑर्डर करें
+</button>
+`;
+
+document.getElementById("mb").innerHTML=html;
+document.getElementById("modal").classList.add("show");
+
+}
+
+function order(total){
+
+let n=document.getElementById("cn").value.trim();
+let a=document.getElementById("ca").value.trim();
+let note=document.getElementById("note").value.trim();
+
+if(!n||!a){
+alert("नाम और पता भरें");
+return;
+}
+
+let items=Object.keys(cart).map(id=>{
+let p=products.find(x=>x.id==id);
+return `${p.name} × ${cart[id]}`;
+}).join(", ");
+
+orders.push({
+name:n,
+address:a,
+note:note,
+total:total,
+items:items,
+date:new Date().toLocaleString("hi-IN")
+});
+
+cart={};
+
+save();
+
+closeModal();
+
+let text=
+`नमस्ते, श्री हरि किराना दुकान में ऑर्डर:
+नाम: ${n}
+पता: ${a}
+सामान: ${items}
+कुल: ₹${total}
+Note: ${note}`;
+
+window.open(
+"https://wa.me/919329890431?text="+encodeURIComponent(text),
+"_blank"
+);
+
+}
+
+function closeModal(){
+document.getElementById("modal").classList.remove("show");
+}
+
+function openAdmin(){
+
+if(prompt("Admin PIN डालें")!==PIN){
+alert("❌ गलत PIN");
+return;
+}
+
+document.getElementById("customer").classList.add("hide");
+document.getElementById("admin").classList.add("show");
+
+render();
+
+}
+
+function closeAdmin(){
+
+document.getElementById("admin").classList.remove("show");
+document.getElementById("customer").classList.remove("hide");
+
+}
+
+function edit(i){
+
+let p=products[i];
+
+let n=prompt("नाम",p.name);
+if(n===null)return;
+
+let u=prompt("यूनिट",p.unit);
+if(u===null)return;
+
+let q=prompt("मात्रा",p.qty);
+if(q===null)return;
+
+let pr=prompt("प्राइस ₹",p.price);
+if(pr===null)return;
+
+p.name=n.trim()||p.name;
+p.unit=u.trim()||p.unit;
+p.qty=Math.max(0,Number(q)||0);
+p.price=Math.max(0,Number(pr)||0);
+
+save();
+
+}
+
+function popular(i){
+products[i].popular=!products[i].popular;
+save();
+}
+
+function del(i){
+
+if(confirm("यह सामान हटाएँ?")){
+products.splice(i,1);
+save();
+}
+
+}
+
+function addOffer(){
+
+let t=document.getElementById("offerText").value.trim();
+
+if(!t){
+alert("ऑफर लिखें");
+return;
+}
+
+offers.push({
+text:t,
+active:true
+});
+
+document.getElementById("offerText").value="";
+
+save();
+
+}
+
+function toggleOffer(i){
+offers[i].active=!offers[i].active;
+save();
+}
+
+function addProduct(){
+
+let n=document.getElementById("pn").value.trim();
+
+if(!n){
+alert("नाम भरें");
+return;
+}
+
+products.push({
+
+id:Date.now(),
+name:n,
+cat:document.getElementById("pc").value.trim()||"किराना",
+unit:document.getElementById("pu").value.trim()||"नग",
+qty:Number(document.getElementById("pq").value)||0,
+price:Number(document.getElementById("pp").value)||0,
+emoji:"🛍️",
+popular:false
+
+});
+
+["pn","pc","pu","pq","pp"].forEach(id=>{
+document.getElementById(id).value="";
+});
+
+save();
+
+alert("✅ सामान जोड़ दिया गया");
+
+}
+
+document.getElementById("search")
+.addEventListener("input",render);
+
+render();
+
 </script>
-
-</body>  
-</html>  
+</body>
+</html>
